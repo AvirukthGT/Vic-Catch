@@ -12,3 +12,4 @@ wheels/
 *service-account*.json
 # Ignore data directory
 data/
+secrets/
