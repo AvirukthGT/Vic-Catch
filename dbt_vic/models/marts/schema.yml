@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: int_hex_feature
+    description: "Intermediate mart joining OSM features to the H3 grid."
+    columns:
+      - name: hex_id
+        description: "The unique H3 resolution 8 hexagon ID."
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_precinct_score
+    description: "The final God Table powering the Streamlit spatial dashboard."
+    columns:
+      - name: hex_id
+        tests:
+          - unique
+          - not_null
+          # Modern dbt 2.0 syntax requires parameters nested under 'arguments'
+          - relationships:
+              arguments:
+                to: ref('stg_hex_grid')
+                field: hex_id
+              
+      - name: total_poi_count
+        tests:
+          - not_null
+
+      - name: precinct_population
+        tests:
+          - not_null
