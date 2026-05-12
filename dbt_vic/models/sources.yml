@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: datalake
+    # create these external tables right in my dev dataset
+    schema: vic_catch_dev
+    tables:
+      - name: ext_osm_features
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_osm_features.parquet']
+      
+      - name: ext_gtfs_stops
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_gtfs_stops.parquet']
+
+      - name: ext_gtfs_routes
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_gtfs_routes.parquet']
+
+      - name: ext_gtfs_trips
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_gtfs_trips.parquet']
+
+      - name: ext_gtfs_stop_times
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_gtfs_stop_times.parquet']
+
+      - name: ext_abs_demographics
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_abs_demographics.parquet']
