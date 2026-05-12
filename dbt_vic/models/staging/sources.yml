@@ -40,3 +40,9 @@ sources:
           options:
             format: parquet
             uris: ['gs://vic-catch-datalake-raw/staged/stg_abs_demographics.parquet']
+
+      - name: ext_hex_grid
+        external:
+          options:
+            format: parquet
+            uris: ['gs://vic-catch-datalake-raw/staged/stg_melbourne_hex_grid.parquet']
