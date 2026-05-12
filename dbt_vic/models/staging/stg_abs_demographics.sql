@@ -7,7 +7,6 @@ renamed as (
         SA1_CODE21 as sa1_id,
         cast(total_population as int64) as total_population,
         
-        -- BigQuery reads GeoParquet geometry beautifully, we just rename it for consistency
         geometry as sa1_geometry
     from source
 )
