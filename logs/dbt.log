@@ -1,0 +1,58 @@
+==================== 2026-05-12T03:23:49.584120Z | 019e1a36-57ac-74e0-9768-1ef021067d6a ====================
+03:23:49.589163 [info ]: Installing dbt project and profile setup
+03:23:49.617874 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+03:23:49.622132 [info ]: Success Project created successfully!
+03:23:49.622468 [info ]: Info Project name: jaffle_shop
+03:23:49.622579 [info ]: Info Project directory: jaffle_shop
+03:23:49.623050 [info ]: Info Setting up your profile...
+03:23:49.638265 [info ]: Loading ~/.dbt/profiles.yml
+03:23:49.665470 [info ]: Info Creating new profile...
+==================== 2026-05-12T03:25:27.635718Z | 019e1a37-d6d2-7311-b0de-4a6b9d1d081a ====================
+03:25:27.635797 [info ]: Installing dbt project and profile setup
+03:25:27.647370 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+03:25:27.647633 [info ]: Success Project created successfully!
+03:25:27.647721 [info ]: Info Project name: jaffle_shop
+03:25:27.647817 [info ]: Info Project directory: jaffle_shop
+03:25:27.647934 [info ]: Info Setting up your profile...
+03:25:27.648331 [info ]: Loading ~/.dbt/profiles.yml
+03:25:27.648837 [info ]: Info Creating new profile...
+03:25:33.731327 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+==================== 2026-05-12T03:30:08.839620Z | 019e1a3c-2145-71b2-ac9b-c6be6f1b3d54 ====================
+03:30:08.839704 [info ]: Installing dbt project and profile setup
+03:30:08.860260 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+03:30:08.860494 [info ]: Success Project created successfully!
+03:30:08.860591 [info ]: Info Project name: dbt_vic
+03:30:08.860679 [info ]: Info Project directory: dbt_vic
+03:30:08.860828 [info ]: Info Setting up your profile...
+03:30:08.861263 [info ]: Loading ~/.dbt/profiles.yml
+03:30:08.861811 [info ]: Info Creating new profile...
+03:30:13.691320 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+03:31:28.026911 [info ]: Success Profile written to C:\Users\User\.dbt\profiles.yml
+03:31:28.028744 [info ]: Validating profile inputs, adapters, and connection
+
+03:31:28.029007 [info ]: dbt-fusion 2.0.0-preview.94
+03:31:28.037780 [info ]: Started loading project
+03:31:28.086232 [info ]: Loading ~/.dbt/profiles.yml
+03:31:28.114699 [info ]: Finished loading project [  0.08s]
+03:31:28.122801 [info ]: Started debugging
+03:31:28.123309 [info ]: Debugging profile: dev
+03:31:28.123638 [info ]: Debugging dbt version: 2.0.0-preview.94
+03:31:28.124081 [info ]: Debugging platform: windows x86_64 (windows)
+03:31:28.124776 [info ]: Debugging adapter type: bigquery (remote)
+03:31:28.150600 [info ]: Debugging dependencies:
+  git: OK
+03:31:28.155504 [info ]: Debugging connection:
+  "database": "root-anvil-474411-k5",
+  "schema": "vic_catch_dev",
+  "method": "service-account",
+  "location": "australia-southeast1",
+  "dataproc_batch": null
+03:31:35.444442 [debug]: Query executed on node unknown:
+select 1 as id
+03:31:35.452991 [info ]: Debugging connection test: OK
+03:31:35.455784 [info ]: Debugged All checks passed!
+03:31:35.456534 [info ]: Finished debugging [  7.33s]
+03:31:36.290750 [info ]: New version available 2.0.0-preview.175 (run `dbt system update`)
+03:31:36.326271 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully for target 'dev' [1m 27s]

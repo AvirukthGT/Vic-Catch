@@ -51,7 +51,8 @@ def process_abs_data():
     gdf_final = gdf_staged[columns_to_keep].rename(columns={
         'Tot_P_P': 'total_population'
     })
-
+    logging.info("Reprojecting geometries to EPSG:4326 (WGS84)...")
+    gdf_final = gdf_final.to_crs("EPSG:4326")
     # Dump to GeoParquet
     logging.info(f"Success! Saving {len(gdf_final)} populated areas to {STAGED_FILE}...")
     
