@@ -1,3 +1,8 @@
+{{ config(
+    materialized='table',
+    cluster_by=['feature_geometry']
+) }}
+
 with source as (
     select * from {{ source('datalake', 'ext_osm_features') }}
 ),
