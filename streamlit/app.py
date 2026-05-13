@@ -7,12 +7,15 @@ import plotly.express as px
 import pydeck as pdk
 from shapely import wkt
 from google.cloud import bigquery
+from google.oauth2 import service_account
 from geopy.geocoders import Nominatim
 import h3
 
-# Auth: Point the SDK at my service account key
+# Auth: Point the SDK at my service account key (for local testing)
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(base_dir, "secrets", "root-anvil-474411-k5-fdd00fadc7e2.json")
+local_secret_path = os.path.join(base_dir, "secrets", "root-anvil-474411-k5-fdd00fadc7e2.json")
+if os.path.exists(local_secret_path):
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = local_secret_path
 
 # ---------------------------------------------------------------------------
 # Set up my page config and apply some custom dark-mode CSS
@@ -47,7 +50,11 @@ st.markdown(
 # ---------------------------------------------------------------------------
 @st.cache_data(show_spinner="Pulling precinct data from BigQuery…")
 def load_data():
-    client = bigquery.Client()
+    if "gcp_service_account" in st.secrets:
+        credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
+        client = bigquery.Client(credentials=credentials, project=credentials.project_id)
+    else:
+        client = bigquery.Client()
     query = """
         SELECT
             hex_id,
