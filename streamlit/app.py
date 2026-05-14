@@ -22,7 +22,6 @@ if os.path.exists(local_secret_path):
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Transit Catchment Opportunity Engine",
-    page_icon="🚆",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -108,7 +107,7 @@ ARCHETYPE_COLOURS_RGB = {k: hex_to_rgb(v) for k, v in ARCHETYPE_COLOURS.items()}
 # Build out my sidebar filters
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.title("🚆 Vic-Catch")
+    st.title("Vic-Catch")
     st.markdown(
         """
         **Transit Catchment Opportunity Engine**
@@ -122,7 +121,7 @@ with st.sidebar:
         infrastructure from GTFS, ABS Census, and OpenStreetMap.
 
         **Opportunity Gap** is the ML-predicted transit demand
-        minus current supply — higher means under-served.
+        minus current supply - higher means under-served.
         """
     )
     st.divider()
@@ -160,7 +159,7 @@ filtered = gdf[
 # ---------------------------------------------------------------------------
 # Set up the main header
 # ---------------------------------------------------------------------------
-st.title("🚆 Transit Catchment Opportunity Engine")
+st.title("Transit Catchment Opportunity Engine")
 st.caption("Greater Melbourne · H3 Res-8 Precincts · Powered by BigQuery + dbt + XGBoost")
 
 # ---------------------------------------------------------------------------
