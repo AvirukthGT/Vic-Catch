@@ -190,10 +190,18 @@ layer = pdk.Layer(
 
 The frontend of the Transit Catchment Opportunity Engine is powered by a robust Streamlit application designed to translate high-dimensionality spatial models into an intuitive, decision-support interface. The architecture focuses on performance and user experience through the following core components:
 
+<img width="1871" height="901" alt="image" src="https://github.com/user-attachments/assets/e76bbe57-c96c-4d94-92a5-9ef78889aa70" />
+
 * **State Management & Caching**: The application leverages Streamlit's `@st.cache_data` decorators to instantiate the BigQuery Client and load the multi-megabyte `mart_precinct_score` payload precisely once per session. This mitigates redundant network latency and significantly reduces cloud compute expenditures.
 * **Geospatial Projections**: The core visualization engine implements a dual-mode map interface. The primary 2D projection utilizes `plotly.express.choropleth_mapbox` configured with a dark-matter cartographic style to highlight granular archetypal boundaries. The secondary 3D projection employs PyDeck (`pdk.Deck`) to extrude the H3 hexagonal polygons vertically on the z-axis strictly proportional to the calculated Opportunity Gap, immediately drawing the user's attention to high-deficit zones.
 * **Reactive Filtering Pipeline**: A dynamic sidebar controls global application state, allowing users to apply multidimensional filters across minimum populations, POI densities, and explicit Urban Archetypes. These filters reactively mutate the underlying Pandas DataFrame in memory, which immediately propagates state changes down to all spatial renderings and the underlying 2x2 analytical grid.
 * **Asynchronous Reverse Geocoding**: To bridge the gap between mathematical hex identifiers and real-world urban planning, the dashboard implements a `geopy.geocoders.Nominatim` client. This client dynamically resolves coordinate centroids into human-readable suburban nomenclature, enriching the Top 10 Opportunity table for non-technical stakeholders.
+
+
+
+<img width="1872" height="901" alt="image" src="https://github.com/user-attachments/assets/3d5dc9f5-e412-48f9-94ef-f48f9e25d3cc" />
+
+
 
 ## 8. Links to Datasets
 
